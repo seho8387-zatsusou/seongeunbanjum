@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var noticeClose = document.getElementById('noticeClose');
+    if (noticeClose) {
+        noticeClose.addEventListener('click', function () {
+            document.getElementById('noticeBanner').classList.add('hidden');
+        });
+    }
+
     var toggle = document.getElementById('navToggle');
     var links = document.querySelector('.topnav-links');
     if (!toggle) return;
