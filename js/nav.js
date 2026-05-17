@@ -1,8 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var banner = document.getElementById('noticeBanner');
+    var nav = document.querySelector('.topnav');
+
+    function adjustNav() {
+        if (banner && nav) {
+            nav.style.top = banner.classList.contains('hidden') ? '0' : banner.offsetHeight + 'px';
+        }
+    }
+
+    adjustNav();
+    window.addEventListener('resize', adjustNav);
+
     var noticeClose = document.getElementById('noticeClose');
     if (noticeClose) {
         noticeClose.addEventListener('click', function () {
-            document.getElementById('noticeBanner').classList.add('hidden');
+            banner.classList.add('hidden');
+            adjustNav();
         });
     }
 
