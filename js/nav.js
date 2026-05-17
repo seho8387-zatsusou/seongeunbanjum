@@ -11,16 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function closeNotice() {
         if (overlay) {
-            overlay.classList.add('hidden');
+            overlay.style.display = 'none';
             localStorage.setItem(NOTICE_KEY, Date.now().toString());
         }
     }
 
     if (overlay) {
-        if (shouldShow()) {
-            overlay.classList.remove('hidden');
-        } else {
-            overlay.classList.add('hidden');
+        if (!shouldShow()) {
+            overlay.style.display = 'none';
         }
     }
 
