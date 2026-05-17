@@ -1,6 +1,6 @@
 window.onload = function initMap() {
-    var LAT = 34.614398;
-    var LNG = 127.721054;
+    var LAT = 34.6144013;
+    var LNG = 127.7212085;
 
     var map = new naver.maps.Map('naver-map', {
         center: new naver.maps.LatLng(LAT, LNG),
