@@ -131,26 +131,6 @@ img { display: block; max-width: 100%; }
 }
 .notice-popup-footer button:hover { background: var(--red); }
 
-/* ── PHONE BUTTON ── */
-.phone-btn {
-    display: none;
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    z-index: 500;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--red);
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,.25);
-    text-decoration: none;
-    transition: transform .2s, box-shadow .2s;
-}
-.phone-btn:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
 
 /* ── FOOTER ── */
 footer {
@@ -221,5 +201,4 @@ footer {
     }
 
     footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
-    .phone-btn { display: flex; }
 }
