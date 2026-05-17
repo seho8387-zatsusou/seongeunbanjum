@@ -9,17 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return Date.now() - parseInt(closed) > HOURS * 60 * 60 * 1000;
     }
 
-    function closeNotice(e) {
-        if (e) e.preventDefault();
+    function closeNotice() {
         if (overlay) {
-            overlay.style.setProperty('display', 'none', 'important');
+            overlay.style.display = 'none';
             localStorage.setItem(NOTICE_KEY, Date.now().toString());
         }
     }
 
     if (overlay) {
         if (!shouldShow()) {
-            overlay.style.setProperty('display', 'none', 'important');
+            overlay.style.display = 'none';
         }
     }
 
@@ -30,11 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.addEventListener('touchend', closeNotice);
         btn.addEventListener('click', closeNotice);
     });
-    if (overlay) overlay.addEventListener('touchend', function (e) {
-        if (e.target === overlay) closeNotice(e);
-    });
     if (overlay) overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeNotice(e);
+        if (e.target === overlay) closeNotice();
     });
 
     var toggle = document.getElementById('navToggle');

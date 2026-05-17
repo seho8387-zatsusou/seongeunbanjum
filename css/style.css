@@ -78,7 +78,6 @@ img { display: block; max-width: 100%; }
     justify-content: center;
     padding: 24px 16px;
     box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
 }
 .notice-overlay.hidden { display: none; }
 .notice-popup {
