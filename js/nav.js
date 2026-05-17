@@ -1,8 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
     var overlay = document.getElementById('noticeOverlay');
+    var NOTICE_KEY = 'noticeClosedAt';
+    var HOURS = 24;
+
+    function shouldShow() {
+        var closed = localStorage.getItem(NOTICE_KEY);
+        if (!closed) return true;
+        return Date.now() - parseInt(closed) > HOURS * 60 * 60 * 1000;
+    }
 
     function closeNotice() {
-        if (overlay) overlay.classList.add('hidden');
+        if (overlay) {
+            overlay.classList.add('hidden');
+            localStorage.setItem(NOTICE_KEY, Date.now().toString());
+        }
+    }
+
+    if (overlay) {
+        if (shouldShow()) {
+            overlay.classList.remove('hidden');
+        } else {
+            overlay.classList.add('hidden');
+        }
     }
 
     var noticeClose = document.getElementById('noticeClose');
