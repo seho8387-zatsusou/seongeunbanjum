@@ -1,23 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var banner = document.getElementById('noticeBanner');
-    var nav = document.querySelector('.topnav');
+    var overlay = document.getElementById('noticeOverlay');
 
-    function adjustNav() {
-        if (banner && nav) {
-            nav.style.top = banner.classList.contains('hidden') ? '0' : banner.offsetHeight + 'px';
-        }
+    function closeNotice() {
+        if (overlay) overlay.classList.add('hidden');
     }
-
-    adjustNav();
-    window.addEventListener('resize', adjustNav);
 
     var noticeClose = document.getElementById('noticeClose');
-    if (noticeClose) {
-        noticeClose.addEventListener('click', function () {
-            banner.classList.add('hidden');
-            adjustNav();
-        });
-    }
+    var noticeConfirm = document.getElementById('noticeConfirm');
+    if (noticeClose) noticeClose.addEventListener('click', closeNotice);
+    if (noticeConfirm) noticeConfirm.addEventListener('click', closeNotice);
+    if (overlay) overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeNotice();
+    });
 
     var toggle = document.getElementById('navToggle');
     var links = document.querySelector('.topnav-links');

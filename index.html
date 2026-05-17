@@ -65,10 +65,23 @@
 </head>
 <body>
 
-<!-- ── NOTICE BANNER ── -->
-<div class="notice-banner" id="noticeBanner">
-    📢 명절 연휴(설·추석) 및 매주 일요일 정기 휴무입니다.
-    <button class="notice-close" id="noticeClose" aria-label="닫기">✕</button>
+<!-- ── NOTICE POPUP ── -->
+<div class="notice-overlay" id="noticeOverlay">
+    <div class="notice-popup">
+        <div class="notice-popup-header">
+            <h4>📢 공지사항</h4>
+            <button class="notice-close" id="noticeClose" aria-label="닫기">✕</button>
+        </div>
+        <div class="notice-popup-body">
+            매주 <strong>일요일 정기 휴무</strong>입니다.<br>
+            명절 연휴(설·추석)에도 휴무하오니<br>
+            방문 전 확인 부탁드립니다.<br><br>
+            📞 061-644-2223
+        </div>
+        <div class="notice-popup-footer">
+            <button id="noticeConfirm">확인</button>
+        </div>
+    </div>
 </div>
 
 <!-- ── TOP NAV ── -->
