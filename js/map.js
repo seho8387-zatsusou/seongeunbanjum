@@ -1,4 +1,4 @@
-(function () {
+function initMap() {
     var LAT = 34.6156836;
     var LNG = 127.7217072;
 
@@ -40,4 +40,4 @@
             infoWindow.open(map, marker);
         }
     });
-})();
+}
