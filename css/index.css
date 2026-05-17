@@ -295,11 +295,18 @@ section { padding: 96px 0; }
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
     .intro-grid { grid-template-columns: 1fr; gap: 48px; }
+    .intro-image { aspect-ratio: 16/9; }
     .menu-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: 1fr; }
+    .info-cards-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
     .menu-grid { grid-template-columns: 1fr; }
-    .container { padding: 0 24px; }
+    .container { padding: 0 20px; }
     section { padding: 64px 0; }
+    .section-title { font-size: 1.8rem; }
+    .info-cards-grid { grid-template-columns: 1fr; }
+    .info-card { padding: 32px 24px; }
+    .map-section-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+    #naver-map { height: 280px; }
 }
