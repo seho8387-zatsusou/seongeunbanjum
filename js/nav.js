@@ -1,37 +1,16 @@
+function closeNotice() {
+    var overlay = document.getElementById('noticeOverlay');
+    if (overlay) overlay.style.display = 'none';
+    try { localStorage.setItem('noticeClosedAt', Date.now().toString()); } catch (e) {}
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     var overlay = document.getElementById('noticeOverlay');
-    var NOTICE_KEY = 'noticeClosedAt';
-    var HOURS = 24;
-
-    function shouldShow() {
-        var closed = localStorage.getItem(NOTICE_KEY);
-        if (!closed) return true;
-        return Date.now() - parseInt(closed) > HOURS * 60 * 60 * 1000;
-    }
-
-    function closeNotice() {
-        if (overlay) {
-            overlay.style.display = 'none';
-            localStorage.setItem(NOTICE_KEY, Date.now().toString());
-        }
-    }
-
     if (overlay) {
-        if (!shouldShow()) {
-            overlay.style.display = 'none';
-        }
+        var closed = localStorage.getItem('noticeClosedAt');
+        var expired = !closed || (Date.now() - parseInt(closed) > 24 * 60 * 60 * 1000);
+        if (!expired) overlay.style.display = 'none';
     }
-
-    var noticeClose = document.getElementById('noticeClose');
-    var noticeConfirm = document.getElementById('noticeConfirm');
-    [noticeClose, noticeConfirm].forEach(function (btn) {
-        if (!btn) return;
-        btn.addEventListener('touchend', closeNotice);
-        btn.addEventListener('click', closeNotice);
-    });
-    if (overlay) overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeNotice();
-    });
 
     var toggle = document.getElementById('navToggle');
     var links = document.querySelector('.topnav-links');
