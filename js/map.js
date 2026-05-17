@@ -21,7 +21,7 @@ window.onload = function initMap() {
         content: [
             '<div style="padding:14px 16px;font-family:\'Noto Sans KR\',sans-serif;min-width:160px;">',
             '  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">성은반점</div>',
-            '  <div style="font-size:12px;color:#888;">전라남도 여수시 남외길 21-1</div>',
+            '  <div style="font-size:12px;color:#888;">전라남도 여수시 돌산읍 남외길 21-1</div>',
             '  <div style="font-size:12px;color:#888;margin-top:2px;">061-644-2223</div>',
             '</div>'
         ].join(''),
