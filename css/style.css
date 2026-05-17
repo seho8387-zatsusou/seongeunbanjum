@@ -71,16 +71,18 @@ img { display: block; max-width: 100%; }
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
+    box-sizing: border-box;
 }
 .notice-overlay.hidden { display: none; }
 .notice-popup {
     background: #fff;
-    max-width: 380px;
+    max-width: 360px;
     width: 100%;
-    border-radius: 2px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    margin: 0 auto;
 }
 .notice-popup-header {
     background: var(--red);
