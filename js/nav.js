@@ -9,25 +9,32 @@ document.addEventListener('DOMContentLoaded', function () {
         return Date.now() - parseInt(closed) > HOURS * 60 * 60 * 1000;
     }
 
-    function closeNotice() {
+    function closeNotice(e) {
+        if (e) e.preventDefault();
         if (overlay) {
-            overlay.classList.add('hidden');
+            overlay.style.setProperty('display', 'none', 'important');
             localStorage.setItem(NOTICE_KEY, Date.now().toString());
         }
     }
 
     if (overlay) {
         if (!shouldShow()) {
-            overlay.classList.add('hidden');
+            overlay.style.setProperty('display', 'none', 'important');
         }
     }
 
     var noticeClose = document.getElementById('noticeClose');
     var noticeConfirm = document.getElementById('noticeConfirm');
-    if (noticeClose) noticeClose.addEventListener('click', closeNotice);
-    if (noticeConfirm) noticeConfirm.addEventListener('click', closeNotice);
+    [noticeClose, noticeConfirm].forEach(function (btn) {
+        if (!btn) return;
+        btn.addEventListener('touchend', closeNotice);
+        btn.addEventListener('click', closeNotice);
+    });
+    if (overlay) overlay.addEventListener('touchend', function (e) {
+        if (e.target === overlay) closeNotice(e);
+    });
     if (overlay) overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeNotice();
+        if (e.target === overlay) closeNotice(e);
     });
 
     var toggle = document.getElementById('navToggle');
