@@ -1,4 +1,4 @@
-function initMap() {
+window.onload = function initMap() {
     var LAT = 34.6156836;
     var LNG = 127.7217072;
 
@@ -40,4 +40,4 @@ function initMap() {
             infoWindow.open(map, marker);
         }
     });
-}
+};
